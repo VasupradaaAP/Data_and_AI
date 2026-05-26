@@ -3,7 +3,7 @@ Refer: Product Scoping/architecture_1.png
 
 Step 5: Multi-Channel KPI Comparison
 Teams evaluate core channel metrics—including ROAS, CTR, conversions, and CAC—to establish a baseline of current performance across marketing platforms.
-AI Agent Integration: Automated Performance Benchmarking. The AI agent ingests cross-channel data, normalizes the metrics, and automatically surfaces comparative insights to highlight which channels are pacing ahead or falling behind.
+AI Agent Integration + MCP: The AI agent uses MCP-based integrations to automatically collect and normalize cross-channel marketing data, benchmark key performance metrics, and generate comparative insights that clearly identify which channels are outperforming and which are falling behind.
 
 Step 7: Advanced Performance Analysis
 Marketing analysts and managers dive deeper into the data to track trends, isolate top-performing assets, and diagnose underperforming campaigns.
@@ -16,3 +16,31 @@ Human Collaboration: This step relies entirely on human context, client feedback
 Step 9: Agile Decision-Making & Optimization
 Final strategic decisions are executed regarding budget reallocation, scaling high-performing channels, or pausing underperforming efforts.
 Hybrid Integration (AI Agent + Manual Discussion): Human-in-the-Loop Execution. The AI agent generates data-driven budget scenarios and optimization roadmaps, which the team and clients review, refine, and manually approve for final deployment.
+
+
+WORK OF AI AGENTS
+1) STEP 5: Multi-Channel KPI Comparison
++ The AI agent acts like: an automated marketing analyst
+It automatically:
+collects data from all platforms
+compares channel performance
+identifies best/worst channels
+prepares summarized insights
++ Role of MCP
+MCP acts like: a connector bridge
+It connects the AI agent with:Google Ads, Meta Ads, CRM, Analytics tools, Email tools without changing existing systems.
+
+2) STEP 7: Advanced Performance Analysis
+The AI agent becomes: an intelligent performance strategist
+It:
+analyzes trends
+predicts future performance
+detects problems
+suggests improvements
+
+3) STEP 9: Agile Decision-Making & Optimization
+The AI agent acts like: a strategic recommendation assistant
+It:
+creates optimization plans
+generates budget scenarios
+recommends scaling strategies
