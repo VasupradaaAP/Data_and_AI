@@ -1,5 +1,5 @@
 AI TOOLS USED IN MANUAL STEPS
-Refer: Product Scoping/architecture_1.png
+Refer: https://github.com/VasupradaaAP/Data_and_AI/blob/main/Product%20Scoping/architecture_1.png
 
 
 Step 5: Multi-Channel KPI Comparison
