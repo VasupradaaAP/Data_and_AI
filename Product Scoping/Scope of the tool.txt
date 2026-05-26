@@ -1,6 +1,5 @@
 AI TOOLS USED IN MANUAL STEPS
-Refer: https://github.com/VasupradaaAP/Data_and_AI/blob/main/Product%20Scoping/architecture_1.png
-
+Refer: Product Scoping/architecture_1.png
 
 Step 5: Multi-Channel KPI Comparison
 Teams evaluate core channel metrics—including ROAS, CTR, conversions, and CAC—to establish a baseline of current performance across marketing platforms.
