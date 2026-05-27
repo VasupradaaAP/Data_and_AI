@@ -9,10 +9,6 @@ Step 7: Advanced Performance Analysis
 Marketing analysts and managers dive deeper into the data to track trends, isolate top-performing assets, and diagnose underperforming campaigns.
 AI Agent Integration: Predictive Analysis & Strategic Forecasting. The AI agent automatically calculates profit/loss margins, identifies macro trends, and delivers actionable recommendations on how to optimize current performance and where to focus future resources.
 
-Step 8: Strategic Team Discussion
-Internal teams and external clients meet to review overall marketing ecosystem health, debate channel effectiveness, and brainstorm creative or strategic adjustments.
-Human Collaboration: This step relies entirely on human context, client feedback, and team alignment to interpret the data findings.
-
 Step 9: Agile Decision-Making & Optimization
 Final strategic decisions are executed regarding budget reallocation, scaling high-performing channels, or pausing underperforming efforts.
 Hybrid Integration (AI Agent + Manual Discussion): Human-in-the-Loop Execution. The AI agent generates data-driven budget scenarios and optimization roadmaps, which the team and clients review, refine, and manually approve for final deployment.
