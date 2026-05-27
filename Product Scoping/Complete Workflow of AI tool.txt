@@ -50,4 +50,57 @@ Option B — hold Meta budget, test two new creatives this week. Keeps reach int
 + Pulse's documentation agent reads three inputs simultaneously: the clean data from Step 5, the analysis from Step 7, and the decision recorded in Step 9. It combines them into a structured report draft — 6–8 bullet points, a channel comparison table, and a single recommended focus line.
 + The draft appears in the "Draft report" tab of Pulse immediately after the Step 9 decision is logged. The manager does not wait for it and does not trigger it manually.
 
+
 FUTURE UPDATION
+i) Need of MultiModal-RAG
+In this tool, Step 10 generates monthly marketing reports as PDFs.
+These PDFs do not contain only text — they also include:
+graphs
+charts
+dashboards
+KPI tables
+screenshots
+diagrams
+executive summaries
+
+A normal text-based RAG system can mainly understand only written text.
+It may miss important information hidden inside visual elements like graphs and dashboards.
+
+So, MultiModal-RAG is needed because it can understand:
+text + images + charts + diagrams together
+from the previous 2–4 months of marketing reports.
+
+This helps the AI learn:
+
+long-term marketing trends
+best performing channels
+repeated campaign failures
+budget efficiency patterns
+customer engagement behavior, instead of analyzing only current live data.
+
+ii) How MultiModal-RAG Can Be Used in This Tool
+The tool stores the last 2–4 months of marketing PDF reports generated in Step 10.
+The MultiModal-RAG system processes these PDFs and extracts information from:
+report text
+KPI tables
+graphs
+trend charts
+dashboard screenshots
+diagrams. The extracted information is converted into a searchable knowledge base.
+
+When a user asks:
+“How is our marketing performing and where should we focus?”
+
+the AI agent:
+checks current live marketing data
+retrieves historical insights from previous PDF reports using MultiModal-RAG
+compares past and present performance
+identifies long-term trends and patterns
+generates better recommendations
+
+Example:
+“Google Search campaigns consistently performed best over the last 4 months.”
+“Meta Ads costs are increasing while conversions are declining.”
+“Video campaigns generated highest engagement repeatedly.”
+
+This makes the tool smarter because it learns not only from current data, but also from historical visual reports and business insights.
