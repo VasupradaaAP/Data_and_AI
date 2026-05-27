@@ -1,1 +1,53 @@
+AI PULSE INTERNAL TOOL
 
+1. Launch campaigns
++ Campaign managers set up and publish ads in Google, Meta, email, and SEO tools as they always have.
++ Builds and launches campaigns directly inside Google Ads, Meta Ads Manager, and Mailchimp — no change to their current process.
+
+2. Data generation
++ Each platform automatically generates its own metrics — the team does nothing here.
++ Google Ads logs CPC, CTR, conversions, ROAS. Meta logs reach, engagement, CPA. Mailchimp logs open rate and clicks. HubSpot logs leads and deals. + Google Analytics logs sessions and bounce rate.
++ All five platforms generate this data independently, in their own formats, on their own timelines.
+
+3. Pull reports
++ Pulse scheduled job runs every Monday at 7:00am and on the last day of the month. It calls all five platform APIs simultaneously and pulls the current week's data.
++ No team member does anything. No one logs in. No one exports a file. The data arrives inside Pulse before the team sits down.
+
+4. Consolidate data
++ The copy-paste and cleaning work that used to happen in Excel no longer exists. Pulse normalises and merges data automatically after pulling it.
++ Immediately after the Step 3 pull, Pulse standardises metric names across platforms (e.g. "conversions" in Google Ads and "purchases" in Mailchimp both map to the same field), calculates derived metrics like ROAS and CAC, and stores everything in a single unified data structure.
+
+5. KPI comparison
++ Pulse's comparison agent reads the clean data and builds the channel-vs-channel table the manager used to build manually in Excel.
++ The MCP-connected comparison agent pulls this week's numbers and last week's numbers for all five channels simultaneously. It calculates week-on-week deltas for spend, revenue, ROAS, leads, and each channel's primary metric.
++ It flags which channels improved, which declined, and by how much — not just the raw numbers but the direction and magnitude of change.
++ It also detects anomalies: if Meta CPA is 22% above its 4-week average, the agent marks that as notable — the manager does not have to spot it themselves.
+
+6. Build dashboard
++ Power BI, Looker Studio, and Tableau dashboards are not replaced. The team keeps using them as before for deep visual analysis.
++ The BI team continues to maintain Power BI dashboards. These show historical trends, campaign-level breakdowns, and audience data that Pulse does not attempt to replicate.
++ Pulse feeds its clean consolidated data into these dashboards via a shared data layer — so the dashboards actually become more reliable because the source data is cleaner.
+
+7. Performance analysis
++ Pulse's analysis agent reads the full 4-week data window across all channels. It identifies what changed, what is above or below its own rolling average, and what the most likely cause is based on the pattern — not just the headline number.
++ It writes three sections automatically: "What changed this week," "Issues to watch" (ranked by severity), and "Options to consider" (2–3 concrete actions, each with a stated tradeoff).
++ It shows its reasoning. Not "Meta is underperforming" — but "Meta leads dropped 28, spend was flat, so CPA rose because conversion rate fell, not because CPM increased. Most likely cause: creative fatigue or audience overlap with last month's campaign."
+
+8. Team meeting Manual
++ The weekly meeting runs as normal. Pulse just means everyone walks in better prepared — the manager has already read the analysis, the deck is drafted.
++ The manager shares the Pulse analysis tab on screen instead of a manually built slide. The "Issues to watch" and "Options to consider" sections become the meeting agenda naturally.
++ The discussion is about strategy and decisions — not about "wait, what was last week's Meta CPA again?" because everyone already knows.
+
+9. Decision making
++ This is the only hybrid step. The AI agent surfaces structured options. The manager decides. Nothing happens without a human approving it.
++ After the meeting, the decision agent reads the analysis output and the team's discussion context. It structures 2–3 concrete options — not one recommendation, but a genuine choice with tradeoffs clearly stated for each.
++ Example output: "Option A — move ₹1L from Meta to Google. ROAS upside: likely +0.3x overall. Risk: brand visibility on Instagram drops, retargeting pool shrinks over 2 weeks. 
+Option B — hold Meta budget, test two new creatives this week. Keeps reach intact, delays performance improvement by 7 days."
++ The agent never says "do this." It always says "here are your choices and what each one costs you."
+
+10. Report to leadership
++ The documentation agent drafts the full weekly report automatically. The manager edits, approves, and sends — instead of building it from scratch.
++ Pulse's documentation agent reads three inputs simultaneously: the clean data from Step 5, the analysis from Step 7, and the decision recorded in Step 9. It combines them into a structured report draft — 6–8 bullet points, a channel comparison table, and a single recommended focus line.
++ The draft appears in the "Draft report" tab of Pulse immediately after the Step 9 decision is logged. The manager does not wait for it and does not trigger it manually.
+
+FUTURE UPDATION
