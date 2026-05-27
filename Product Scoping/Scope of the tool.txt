@@ -1,3 +1,16 @@
+FUNCTIONALITIES OF THE INTERNAL TOOL
+1. What the tool actually is
+This is an internal marketing intelligence layer that sits on top of the tools the team already uses. The team keeps using Excel, Power BI, Slack, and every other tool in their stack. This tool does not touch their workflow. It plugs into the data those tools already produce.
+
+2. Who it is for
+For the Primary User: The Marketing Manager
+The tool automatically connects to all ad platforms, balances out the different metrics, and flags exactly where you are losing or winning money. Instead of spending hours hunting for problems, the manager simply reviews the automated findings, approves the best strategy, and prepares for the team meeting in minutes.
+For the Secondary User: The Team
+The team doesn't need to log into complex software or decipher spreadsheets. The tool packages the final, manager-approved insights into a simple Slack message or a clean PDF. They instantly see what is working, what isn't, and what the plan is.
+
+
+
+
 AI TOOLS USED IN MANUAL STEPS
 Refer: Product Scoping/architecture_1.png
 
