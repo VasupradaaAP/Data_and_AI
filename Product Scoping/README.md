@@ -1,6 +1,6 @@
 # DECISIONS MADE FOR SCOPING THE TOOL #
 
-## Why four AI agents at those four steps ##
+## Why four AI agents are needed ##
 The four steps chosen for AI intervention are not arbitrary — they are the steps where manual work is highest, the output is most formulaic, and the risk of AI error is lowest.
 
 •	Step 5 (comparison) is the highest-friction data work in the process. It is pure computation — comparing numbers across platforms. A computer should do this, not a person.
@@ -13,7 +13,7 @@ The four steps chosen for AI intervention are not arbitrary — they are the ste
 
 Steps 1, 2, 6, and 8 are deliberately left to human or platform automation. They either require no improvement (platforms auto-generate data in Step 2), are better served by existing tools (Power BI in Step 6), or involve judgment and relationship that no tool should touch (the team meeting in Step 8).
 
-##Why steps 3 and 4 are automated even though they are not AI steps##
+## Why steps 3 and 4 are automated even though they are not AI steps ##
 Steps 3 (pulling reports) and 4 (consolidating data) are not AI steps — they are simple scheduled automation and data normalisation. But they are the most important steps to get right, because every AI agent downstream inherits the quality of what these two steps produce.
 
 If Step 3 fails (an API is down, a credential expires), the Monday morning analysis is missing a channel. If Step 4 normalises incorrectly (mapping the wrong metric), the comparison agent in Step 5 produces confident wrong output. These two steps were prioritised not because they are glamorous but because they are foundational.
