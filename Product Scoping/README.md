@@ -41,6 +41,7 @@ The correct sequencing is: per-channel analysis in v1, cross-channel attribution
 
 ## What to revisit with more time ##
 **IF GIVEN 2 MORE WEEKS BEFORE V1 SHIPS**
+
 •	Data validation layer: automated checks that flag when a platform's numbers are statistically implausible (e.g. ROAS suddenly 10x for one day — likely a tracking error, not a performance breakthrough). This currently relies on the manager noticing.
 
 •	HubSpot data quality scoring: a simple indicator of how complete the CRM data is, so the manager knows whether to trust the leads and revenue numbers before the meeting.
@@ -48,6 +49,7 @@ The correct sequencing is: per-channel analysis in v1, cross-channel attribution
 •	Agent confidence indicator: a visible signal on each AI output showing how much data supported the conclusion. 'Based on 4 weeks of data' vs 'based on 1 week of data' are very different levels of reliability.
 
 **CANDIDATES FOR V2 (ONLY IF TEAM ASKS FOR THEM)**
+
 •	Natural language Q&A: ask Pulse 'what happened to Meta last Tuesday?' and get an answer. High value, moderate build cost. Include only after the core Monday workflow is trusted.
 
 •	Campaign-level drill-down: currently Pulse shows channel-level data only. Going one level deeper — which specific Google campaign drove the ROAS improvement — would require surfacing more data without overwhelming the interface.
@@ -59,6 +61,7 @@ The correct sequencing is: per-channel analysis in v1, cross-channel attribution
 •	Slack bot integration: instead of a copy-to-Slack button, a Slack bot that posts the Monday summary automatically to the team channel. Low build cost, high convenience.
 
 **THINGS DELIBERATELY NOT REVISITING**
+
 •	Real-time monitoring and push alerts: the team's workflow is weekly. Alerts would interrupt without adding value until the team explicitly asks for them.
 
 •	Budget auto-execution: permanently excluded. The financial and trust risk of automating budget decisions outweighs any time saving. Human approval is not a v1 constraint — it is a design principle.
