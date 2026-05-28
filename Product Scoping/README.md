@@ -1,6 +1,6 @@
 ### DECISIONS MADE FOR SCOPING THE TOOL ###
 
-## Why four AI agents at those four steps ##
+# Why four AI agents at those four steps #
 The four steps chosen for AI intervention are not arbitrary — they are the steps where manual work is highest, the output is most formulaic, and the risk of AI error is lowest.
 
 •	Step 5 (comparison) is the highest-friction data work in the process. It is pure computation — comparing numbers across platforms. A computer should do this, not a person.
