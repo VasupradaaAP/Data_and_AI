@@ -1,0 +1,8 @@
+date,time,city,day_of_week,day_type,temperature_2m_mean,temperature_2m_max,temperature_2m_min,relative_humidity_2m_mean,precipitation_sum,precipitation_risk,weather_code,weather_description,windspeed_10m_max,comfort_index,timezone,elevation,latitude,longitude,week_number
+2026-05-28,2026-05-28,New York,Thursday,cloudy,22.7,27.3,18.5,47,0.0,none,3,Overcast,25.3,83.65,GMT,32.0,40.710335,-73.99308,22
+2026-05-29,2026-05-29,New York,Friday,cloudy,18.0,24.4,11.5,55,0.0,none,3,Overcast,19.5,80.8,GMT,32.0,40.710335,-73.99308,22
+2026-05-30,2026-05-30,New York,Saturday,windy,15.9,20.5,10.4,47,0.0,none,3,Overcast,32.5,78.55,GMT,32.0,40.710335,-73.99308,22
+2026-05-31,2026-05-31,New York,Sunday,cloudy,17.5,23.9,12.0,41,0.0,none,2,Partly cloudy,18.8,78.07,GMT,32.0,40.710335,-73.99308,22
+2026-06-01,2026-06-01,New York,Monday,cloudy,19.6,23.9,15.2,46,0.0,none,3,Overcast,25.1,83.5,GMT,32.0,40.710335,-73.99308,23
+2026-06-02,2026-06-02,New York,Tuesday,rainy,18.3,22.8,13.9,45,0.2,low,51,Light drizzle,28.7,80.95,GMT,32.0,40.710335,-73.99308,23
+2026-06-03,2026-06-03,New York,Wednesday,rainy,17.3,23.8,12.6,47,0.1,low,51,Light drizzle,18.5,81.55,GMT,32.0,40.710335,-73.99308,23
