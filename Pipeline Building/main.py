@@ -14,7 +14,7 @@ from typing import Optional, Tuple
 import config
 from api_client import fetch_weather_data, APIClientError
 from data_transformer import transform_weather_data, DataTransformationError
-
+from bigquery_client import upload_to_bigquery
 
 def setup_logging() -> logging.Logger:
     """
@@ -119,9 +119,55 @@ def run_pipeline(
         logger.info(f"[OK] JSON saved: {json_path}")
         logger.debug(f"JSON file size: {json_path.stat().st_size} bytes")
 
-        # ===== STEP 4: DATA QUALITY SUMMARY =====
-        logger.info("\n[STEP 4] Data Quality Report...")
+        # ===== STEP 5: DATA QUALITY SUMMARY =====
+        logger.info("\n[STEP 5] Data Quality Report...")
         _log_data_quality_summary(logger, df)
+
+        # ===== STEP 4: UPLOAD TO BIGQUERY =====
+        logger.info("\n[STEP 4] Uploading data to BigQuery...")
+        
+        if config.BIGQUERY_ENABLED:
+            try:
+                # Determine project ID
+                project_id = config.BIGQUERY_PROJECT_ID
+                if not project_id:
+                    # Try to read from credentials file
+                    import json
+                    creds_path = config.BIGQUERY_CREDENTIALS_PATH or (
+                        Path(__file__).parent / "credentials" / "bq-credentials.json"
+                    )
+                    if creds_path and Path(creds_path).exists():
+                        with open(creds_path, 'r') as f:
+                            creds = json.load(f)
+                            project_id = creds.get("project_id", "")
+                    
+                    if not project_id:
+                        raise ValueError(
+                            "BigQuery project_id not configured. "
+                            "Set in config.BIGQUERY_PROJECT_ID or in credentials file"
+                        )
+                
+                # Upload to BigQuery
+                success, bq_msg = upload_to_bigquery(
+                    df=df,
+                    project_id=project_id,
+                    dataset_id=config.BIGQUERY_DATASET_ID,
+                    table_id=config.BIGQUERY_TABLE_ID,
+                    credentials_path=config.BIGQUERY_CREDENTIALS_PATH or None,
+                    write_mode=config.BIGQUERY_WRITE_MODE
+                )
+                
+                if success:
+                    logger.info(f"[OK] BigQuery: {bq_msg}")
+                else:
+                    logger.warning(f"[WARNING] BigQuery upload skipped: {bq_msg}")
+                    # Continue pipeline even if BigQuery fails (local files are still saved)
+                    
+            except Exception as e:
+                logger.warning(f"[WARNING] BigQuery upload failed: {str(e)}")
+                logger.info("Continuing pipeline (local files were saved successfully)")
+        else:
+            logger.info("[OK] BigQuery upload disabled in config")
 
         # ===== SUCCESS =====
         logger.info("\n" + "=" * 80)
@@ -135,6 +181,8 @@ def run_pipeline(
             f"  • Rows: {len(df)}\n"
             f"  • Columns: {len(df.columns)}"
         )
+        if config.BIGQUERY_ENABLED:
+            success_msg += f"\n  • BigQuery: {config.BIGQUERY_DATASET_ID}.{config.BIGQUERY_TABLE_ID}"
         logger.info(success_msg)
 
         return True, success_msg
