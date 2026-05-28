@@ -79,6 +79,19 @@ RETRY_BACKOFF_FACTOR = 2  # exponential backoff: 1s, 2s, 4s
 # ===========================
 FORECAST_DAYS = 7  # Fetch 7-day forecast
 
+# ===========================
+# BIGQUERY CONFIGURATION
+# ===========================
+# BigQuery Sandbox settings (free tier, no billing required)
+BIGQUERY_ENABLED = True  # Set to False to disable BigQuery upload
+BIGQUERY_PROJECT_ID = "storage-497612"  # Will be read from credentials if not set
+BIGQUERY_DATASET_ID = "weather_data"  # Dataset name
+BIGQUERY_TABLE_ID = "weather_forecast"  # Table name
+BIGQUERY_WRITE_MODE = "APPEND"  # "APPEND" (add rows) or "WRITE_TRUNCATE" (replace all)
+
+# Credentials path (leave empty to use default locations)
+# Priority: env var GOOGLE_APPLICATION_CREDENTIALS → ./credentials/bq-credentials.json → gcloud defaults
+BIGQUERY_CREDENTIALS_PATH = ""
 
 def get_output_path(filename_template: str, city_name: str = DEFAULT_CITY_NAME) -> Path:
     """
