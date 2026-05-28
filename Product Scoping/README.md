@@ -1,5 +1,9 @@
 # DECISIONS MADE FOR SCOPING THE TOOL #
 
+
+<img width="746" height="941" alt="architecture_1" src="https://github.com/user-attachments/assets/8a3921c8-1393-4033-b67e-a55491a42520" />
+
+
 ## Why four AI agents are needed ##
 The four steps chosen for AI intervention are not arbitrary — they are the steps where manual work is highest, the output is most formulaic, and the risk of AI error is lowest.
 
