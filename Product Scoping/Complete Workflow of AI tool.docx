@@ -51,7 +51,9 @@ Option B — hold Meta budget, test two new creatives this week. Keeps reach int
 + The draft appears in the "Draft report" tab of Pulse immediately after the Step 9 decision is logged. The manager does not wait for it and does not trigger it manually.
 
 
+
 FUTURE UPDATION
+
 i) Need of MultiModal-RAG
 In this tool, Step 10 generates monthly marketing reports as PDFs.
 These PDFs do not contain only text — they also include:
@@ -77,6 +79,7 @@ best performing channels
 repeated campaign failures
 budget efficiency patterns
 customer engagement behavior, instead of analyzing only current live data.
+
 
 ii) How MultiModal-RAG Can Be Used in This Tool
 The tool stores the last 2–4 months of marketing PDF reports generated in Step 10.
