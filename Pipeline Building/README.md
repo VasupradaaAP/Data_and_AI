@@ -432,7 +432,7 @@ Each file in this project has a specific responsibility:
 
 ### Core Pipeline Files
 
-**[config.py](d:\DataAI\config.py)** (104 lines) - **⚙️ Configuration Hub**
+**[config.py](d:\DataAI\config.py)** - **⚙️ Configuration Hub**
 - Centralized settings (no hardcoding)
 - Default location: New York (40.7128°N, 74.0060°W)
 - API parameters: 7 weather metrics with correct naming (temperature_2m_mean, etc.)
@@ -449,7 +449,7 @@ Each file in this project has a specific responsibility:
   BIGQUERY_TABLE_ID = "weather_forecast"
   ```
 
-**[api_client.py](d:\DataAI\api_client.py)** (262 lines) - **🌐 API Integration**
+**[api_client.py](d:\DataAI\api_client.py)** - **🌐 API Integration**
 - Handles Open-Meteo API communication
 - **Retry Logic**: Exponential backoff (1s, 2s, 4s) for network failures
 - **Error Handling**: Captures API error messages and HTTP status codes
@@ -462,7 +462,7 @@ Each file in this project has a specific responsibility:
   - API returns 400 (bad params) → fail with clear message
   - Missing fields in response → validation error
 
-**[data_transformer.py](d:\DataAI\data_transformer.py)** (430+ lines) - **🔄 Data Cleaning & Enrichment**
+**[data_transformer.py](d:\DataAI\data_transformer.py)** - **🔄 Data Cleaning & Enrichment**
 - Transforms raw nested JSON into analytical DataFrame
 - **5 Derived Analytics Fields Added:**
   1. `weather_description`: WMO codes (0, 1, 45, 48...) → human text ("Sunny", "Foggy", etc.)
@@ -482,7 +482,7 @@ Each file in this project has a specific responsibility:
   - `_clean_data()`: Missing values, duplicates, outliers
   - `_add_derived_fields()`: Analytical enrichment
 
-**[main.py](d:\DataAI\main.py)** (207 lines) - **🚀 Pipeline Orchestration**
+**[main.py](d:\DataAI\main.py)** - **🚀 Pipeline Orchestration**
 - Main entry point: coordinates all 5 pipeline steps
 - **5-Step Workflow:**
   ```
@@ -503,7 +503,7 @@ Each file in this project has a specific responsibility:
   - Timestamps on all outputs
   - Complete success/failure reporting
 
-**[bigquery_client.py](d:\DataAI\bigquery_client.py)** (432 lines) - **📊 BigQuery Integration** ⭐ NEW
+**[bigquery_client.py](d:\DataAI\bigquery_client.py)** - **📊 BigQuery Integration** ⭐ NEW
 - Handles BigQuery authentication, schema management, and data loading
 - **Auto-Creation Features:**
   - Creates dataset "weather_data" if not exists
