@@ -53,7 +53,14 @@ class BigQueryClient:
         
         # Initialize client
         self.client = self._authenticate()
-        logger.info(f"[OK] BigQuery client initialized for project: {project_id}")
+        # Log both the requested project_id and the client-resolved project
+        try:
+            resolved_project = getattr(self.client, 'project', None)
+        except Exception:
+            resolved_project = None
+        logger.info(
+            f"[OK] BigQuery client initialized (requested_project={project_id}, client_project={resolved_project}, credentials={self.credentials_path})"
+        )
     
     @staticmethod
     def _get_default_credentials_path() -> str:
@@ -287,6 +294,59 @@ class BigQueryClient:
             
             # Add loaded timestamp (as pandas Timestamp for BigQuery compatibility)
             df["loaded_timestamp"] = pd.Timestamp(datetime.utcnow())
+
+            # --- Sanitization: coerce problematic values to match BigQuery schema ---
+            def _safe_int_series(s: pd.Series) -> pd.Series:
+                def _to_int(x):
+                    try:
+                        if pd.isna(x):
+                            return None
+                        if isinstance(x, str):
+                            x = x.replace(',', '').strip()
+                            if x == '':
+                                return None
+                        return int(float(x))
+                    except Exception:
+                        return None
+                return s.apply(_to_int)
+
+            int_cols = ["relative_humidity_2m_mean", "weather_code", "week_number"]
+            for col in int_cols:
+                if col in df.columns:
+                    original = df[col].copy()
+                    coerced = _safe_int_series(original)
+
+                    # Find rows that failed coercion (non-null original -> null coerced)
+                    failed_mask = (~original.isna()) & (coerced.isna())
+                    if failed_mask.any():
+                        samples = original[failed_mask].unique()[:10]
+                        logger.warning(
+                            f"Column '{col}' has {failed_mask.sum()} non-numeric values that were coerced to null. Samples: {samples}"
+                        )
+
+                    # Cast to pandas nullable integer dtype to give pyarrow/BigQuery a clear int type
+                    df[col] = pd.to_numeric(coerced, errors="coerce").astype("Int64")
+                    logger.debug(f"Sanitized integer column '{col}' (sample): {df[col].dropna().unique()[:5]}")
+
+            # Ensure textual/categorical columns are plain strings
+            str_cols = ["precipitation_risk", "weather_description", "day_type", "city", "timezone"]
+            for col in str_cols:
+                if col in df.columns:
+                    df[col] = df[col].apply(lambda x: None if pd.isna(x) else str(x))
+                    logger.debug(f"Sanitized string column '{col}' (sample): {df[col].dropna().unique()[:5]}")
+
+            # Normalize date/time columns to appropriate dtypes
+            if "date" in df.columns:
+                try:
+                    df["date"] = pd.to_datetime(df["date"]).dt.date
+                except Exception:
+                    logger.warning("Could not parse 'date' column to datetime.date; leaving as-is")
+
+            if "time" in df.columns:
+                try:
+                    df["time"] = pd.to_datetime(df["time"])  # Timestamp
+                except Exception:
+                    logger.warning("Could not parse 'time' column to datetime; leaving as-is")
             
             # Configure load job
             table_id_full = f"{self.project_id}.{self.dataset_id}.{self.table_id}"
