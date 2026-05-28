@@ -1,7 +1,7 @@
 # DECISIONS MADE FOR SCOPING THE TOOL #
 
+<img width="587" height="977" alt="flowchart with AI tools" src="https://github.com/user-attachments/assets/800c09bc-0dda-452a-9e2b-2ef944bda402" />
 
-<img width="746" height="941" alt="architecture_1" src="https://github.com/user-attachments/assets/8a3921c8-1393-4033-b67e-a55491a42520" />
 
 
 ## Why four AI agents are needed ##
