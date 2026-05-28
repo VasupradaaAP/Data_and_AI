@@ -1,0 +1,64 @@
+2026-05-28 15:39:44,454 - WeatherPipeline - INFO - ================================================================================
+2026-05-28 15:39:44,454 - WeatherPipeline - INFO - WEATHER DATA PIPELINE STARTED
+2026-05-28 15:39:44,454 - WeatherPipeline - INFO - Configuration: New York (lat=40.7128, lon=-74.006)
+2026-05-28 15:39:44,454 - WeatherPipeline - INFO - Forecast Days: 7
+2026-05-28 15:39:44,454 - WeatherPipeline - INFO - ================================================================================
+2026-05-28 15:39:44,454 - WeatherPipeline - INFO - 
+[STEP 1] Fetching weather data from API...
+2026-05-28 15:39:44,454 - WeatherPipeline - INFO - URL: https://api.open-meteo.com/v1/forecast
+2026-05-28 15:39:45,351 - WeatherPipeline - INFO - [OK] Data fetched successfully
+2026-05-28 15:39:45,351 - WeatherPipeline - DEBUG - Raw data keys: dict_keys(['latitude', 'longitude', 'generationtime_ms', 'utc_offset_seconds', 'timezone', 'timezone_abbreviation', 'elevation', 'daily_units', 'daily'])
+2026-05-28 15:39:45,351 - WeatherPipeline - DEBUG - Raw data size: 964 bytes
+2026-05-28 15:39:45,351 - WeatherPipeline - INFO - 
+[STEP 2] Transforming and cleaning data...
+2026-05-28 15:39:45,369 - WeatherPipeline - INFO - [OK] Data transformed successfully
+2026-05-28 15:39:45,370 - WeatherPipeline - INFO - Dataset shape: (7, 20) (rows, columns)
+2026-05-28 15:39:45,370 - WeatherPipeline - DEBUG - Columns: ['date', 'time', 'city', 'day_of_week', 'day_type', 'temperature_2m_mean', 'temperature_2m_max', 'temperature_2m_min', 'relative_humidity_2m_mean', 'precipitation_sum', 'precipitation_risk', 'weather_code', 'weather_description', 'windspeed_10m_max', 'comfort_index', 'timezone', 'elevation', 'latitude', 'longitude', 'week_number']
+2026-05-28 15:39:45,370 - WeatherPipeline - INFO - 
+[STEP 3] Saving processed data...
+2026-05-28 15:39:45,372 - WeatherPipeline - INFO - [OK] CSV saved: D:\DataAI\output\weather_forecast_New York_20260528_153945.csv
+2026-05-28 15:39:45,372 - WeatherPipeline - DEBUG - CSV file size: 1180 bytes
+2026-05-28 15:39:45,375 - WeatherPipeline - INFO - [OK] JSON saved: D:\DataAI\output\weather_forecast_New York_20260528_153945.json
+2026-05-28 15:39:45,375 - WeatherPipeline - DEBUG - JSON file size: 4045 bytes
+2026-05-28 15:39:45,375 - WeatherPipeline - INFO - 
+[STEP 4] Uploading data to BigQuery...
+2026-05-28 15:39:53,852 - WeatherPipeline - INFO - [OK] BigQuery: Loaded 7 rows
+2026-05-28 15:39:53,852 - WeatherPipeline - INFO - 
+[STEP 5] Data Quality Report...
+2026-05-28 15:39:53,852 - WeatherPipeline - INFO - Total records: 7
+2026-05-28 15:39:53,852 - WeatherPipeline - INFO - Total columns: 21
+2026-05-28 15:39:53,855 - WeatherPipeline - INFO - [OK] No missing values in dataset
+2026-05-28 15:39:53,855 - WeatherPipeline - INFO - Data types:
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • date: object
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • time: datetime64[ns]
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • city: object
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • day_of_week: object
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • day_type: object
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • temperature_2m_mean: float64
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • temperature_2m_max: float64
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • temperature_2m_min: float64
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • relative_humidity_2m_mean: Int64
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • precipitation_sum: float64
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • precipitation_risk: category
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • weather_code: Int64
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • weather_description: object
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • windspeed_10m_max: float64
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • comfort_index: float64
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • timezone: object
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • elevation: float64
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • latitude: float64
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • longitude: float64
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • week_number: Int64
+2026-05-28 15:39:53,855 - WeatherPipeline - DEBUG -   • loaded_timestamp: datetime64[us]
+2026-05-28 15:39:53,857 - WeatherPipeline - INFO - Comfort Index range: 78.1 - 83.7
+2026-05-28 15:39:53,857 - WeatherPipeline - INFO - Day type distribution: {'cloudy': 4, 'rainy': 2, 'windy': 1}
+2026-05-28 15:39:53,857 - WeatherPipeline - INFO - 
+================================================================================
+2026-05-28 15:39:53,857 - WeatherPipeline - INFO - [SUCCESS] PIPELINE COMPLETED SUCCESSFULLY
+2026-05-28 15:39:53,857 - WeatherPipeline - INFO - ================================================================================
+2026-05-28 15:39:53,857 - WeatherPipeline - INFO - Pipeline completed successfully!
+  • CSV: D:\DataAI\output\weather_forecast_New York_20260528_153945.csv
+  • JSON: D:\DataAI\output\weather_forecast_New York_20260528_153945.json
+  • Rows: 7
+  • Columns: 21
+  • BigQuery: weather_data.weather_forecast
