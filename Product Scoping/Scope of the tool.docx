@@ -69,6 +69,8 @@ writes executive summaries translating complex data into business impact
 dispatches scheduled reports directly to managers and clients via email or communication channels
 
 
+WRITTEN SPEC
+
 In scope for v1
 DATA LAYER
 •	Read-only API connections to Google Ads, Meta Marketing API, Google Analytics Data API, Mailchimp API, HubSpot CRM API
@@ -94,6 +96,7 @@ OUTPUT FORMATS
 •	PDF export from Screen 3
 •	Copy-to-Slack button that formats the summary as plain text
 •	Clean data layer accessible to existing Power BI and Looker Studio dashboards via shared read endpoint
+
 
 Explicitly not in scope for v1
 The following are excluded from v1. Each exclusion has a reason. None of them are permanently ruled out — they are ruled out for now because including them in v1 either increases build time without proportional value, or introduces trust risk before the team has validated the core.
